@@ -69,32 +69,15 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal gap-2">
       <li>
-        <a className="font-medium">Home</a>
+        <Link href="/books">Books</Link>
       </li>
 
       <li>
-        <a className="font-medium">Books</a>
+        <Link href="/listed-books">Listed Books</Link>
       </li>
 
       <li>
-        <details>
-          <summary className="font-medium">Categories</summary>
-
-          <ul className="z-10 mt-3 w-48 rounded-xl bg-base-100 p-2 shadow-lg">
-            <li>
-              <a>Fiction</a>
-            </li>
-            <li>
-              <a>Science</a>
-            </li>
-            <li>
-              <a>Technology</a>
-            </li>
-            <li>
-              <a>Biography</a>
-            </li>
-          </ul>
-        </details>
+         <Link href="/Read-books">Read Books</Link>
       </li>
 
       <li>
