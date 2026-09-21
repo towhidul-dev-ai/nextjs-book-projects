@@ -1,53 +1,117 @@
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/assests/book.ico';
+import Link from 'next/link';
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+<div className="navbar mx-auto max-w-7xl bg-base-100 px-4 shadow-sm md:px-6">
+  {/* Logo */}
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      <div
+        tabIndex={0}
+        role="button"
+        className="btn btn-ghost btn-circle lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
       </div>
+
+      {/* Mobile Menu */}
       <ul
         tabIndex={-1}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
+        className="menu dropdown-content z-10 mt-3 w-52 rounded-2xl bg-base-100 p-3 shadow-lg"
+      >
         <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
+          <a>Home</a>
         </li>
-        <li><a>Item 3</a></li>
+        <li>
+          <Link href="/books">Books</Link>
+        </li>
+        <li>
+          <Link href="/listed-books">Listed Books</Link>
+        </li>
+        <li>
+          <Link href="/Read-books">Read Books</Link>
+        </li>
       </ul>
     </div>
-    <div className='flex items-center gap-2'>
-        <Image src={logo} alt='NavLogo'></Image>
-        Book Vive
+
+    <div className="flex items-center gap-2">
+      <Image
+        src={logo}
+        alt="Book Vive Logo"
+        width={40}
+        height={40}
+        className="rounded-lg"
+      />
+
+      <span className="text-xl font-bold tracking-tight text-slate-800">
+        Book<span className="text-green-600">Vive</span>
+      </span>
     </div>
-    
   </div>
+
+  {/* Desktop Menu */}
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
+    <ul className="menu menu-horizontal gap-2">
+      <li>
+        <a className="font-medium">Home</a>
+      </li>
+
+      <li>
+        <a className="font-medium">Books</a>
+      </li>
+
       <li>
         <details>
-          <summary>Parent</summary>
-          <ul className="p-2 bg-base-100 w-40 z-1">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+          <summary className="font-medium">Categories</summary>
+
+          <ul className="z-10 mt-3 w-48 rounded-xl bg-base-100 p-2 shadow-lg">
+            <li>
+              <a>Fiction</a>
+            </li>
+            <li>
+              <a>Science</a>
+            </li>
+            <li>
+              <a>Technology</a>
+            </li>
+            <li>
+              <a>Biography</a>
+            </li>
           </ul>
         </details>
       </li>
-      <li><a>Item 3</a></li>
+
+      <li>
+        <a className="font-medium">About</a>
+      </li>
     </ul>
   </div>
+
+  {/* Authentication Buttons */}
   <div className="navbar-end gap-2">
-    <button className="btn btn-success">Sign In</button>
-    <button className="btn btn-error">Sign Up</button>
+    <button className="btn btn-ghost hidden sm:flex">
+      Sign In
+    </button>
+
+    <button className="btn btn-success rounded-lg px-5 text-white">
+      Sign Up
+    </button>
   </div>
 </div>
     );
